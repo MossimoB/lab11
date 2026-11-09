@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 import mossimo.bianco.lab11.model.Order;
+import mossimo.bianco.lab11.view.FallingLeaves;
 
 public class SummaryController {
 
@@ -31,6 +32,9 @@ public class SummaryController {
             if (newScene != null
                     && !newScene.getStylesheets().contains(OrderController.STYLESHEET)) {
                 newScene.getStylesheets().add(OrderController.STYLESHEET);
+            }
+            if (newScene != null) {
+                FallingLeaves.addTo(newScene);
             }
         });
     }

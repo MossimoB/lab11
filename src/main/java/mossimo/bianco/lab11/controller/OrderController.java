@@ -24,6 +24,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import mossimo.bianco.lab11.model.Order;
+import mossimo.bianco.lab11.view.FallingLeaves;
 
 public class OrderController {
 
@@ -142,6 +143,9 @@ public class OrderController {
         entreeList.sceneProperty().addListener((observable, oldScene, newScene) -> {
             if (newScene != null && !newScene.getStylesheets().contains(STYLESHEET)) {
                 newScene.getStylesheets().add(STYLESHEET);
+            }
+            if (newScene != null) {
+                FallingLeaves.addTo(newScene);
             }
         });
 
