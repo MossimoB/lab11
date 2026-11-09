@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="mossimo.bianco.lab11.controller.OrderController">
+
+    <top>
+        <MenuBar>
+            <menus>
+                <Menu text="File">
+                    <items>
+                        <MenuItem text="Place Order"
+                                  onAction="#placeOrder"/>
+                        <MenuItem text="Clear Order"
+                                  onAction="#clearOrder"/>
+                        <SeparatorMenuItem/>
+                        <MenuItem text="Exit"
+                                  onAction="#exitApplication"/>
+                    </items>
+                </Menu>
+
+                <Menu text="Edit">
+                    <items>
+                        <MenuItem text="Entrée"
+                                  onAction="#clearEntree"/>
+                        <MenuItem text="Drink"
+                                  onAction="#clearDrink"/>
+                        <MenuItem text="Special Request"
+                                  onAction="#clearSpecialRequests"/>
+                    </items>
+                </Menu>
+
+                <Menu text="Help">
+                    <items>
+                        <MenuItem text="About"
+                                  onAction="#showAbout"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+
+    <center>
+        <VBox spacing="15">
+            <padding>
+                <Insets top="20" right="25"
+                        bottom="20" left="25"/>
+            </padding>
+            <Label text="Campus Restaurant"
+                   style="-fx-font-size: 26px; -fx-font-weight: bold;"/>
+            <Label text="Place Your Order"
+                   style="-fx-font-size: 16px;"/>
+            
+            <Separator/>
+
+            <!-- Entree and Drink Selection -->
+            <HBox spacing="50">
+                <VBox spacing="10" HBox.hgrow="ALWAYS">
+                    <Label text="Select an Entrée"
+                           style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                    <ListView fx:id="entreeList"
+                              prefHeight="150"
+                              maxHeight="150"/>
+                </VBox>
+
+                <VBox spacing="12">
+                    <Label text="Select a Drink"
+                           style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                    <RadioButton fx:id="coffeeButton"
+                                 text="Coffee ($1.50)"
+                                 toggleGroup="$drinkGroup"/>
+                    <RadioButton fx:id="teaButton"
+                                 text="Tea ($1.50)"
+                                 toggleGroup="$drinkGroup"/>
+                    <RadioButton fx:id="sodaButton"
+                                 text="Soda ($2.00)"
+                                 toggleGroup="$drinkGroup"/>
+                    <RadioButton fx:id="juiceButton"
+                                 text="Juice ($1.75)"
+                                 toggleGroup="$drinkGroup"/>
+                    <fx:define>
+                        <ToggleGroup fx:id="drinkGroup"/>
+                    </fx:define>
+                </VBox>
+            </HBox>
+
+            <Separator/>
+
+            <!-- Special Requests -->
+
+            <Label text="Special Requests"
+                   style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <TextArea fx:id="specialRequestsArea"
+                      promptText="Enter additional instructions..."
+                      prefRowCount="3"
+                      wrapText="true"/>
+            <CheckBox fx:id="waterCheckBox"
+                      text="Request free water"/>
+
+            <Separator/>
+
+            <!-- Current Order -->
+
+            <VBox spacing="10"
+                  style="-fx-background-color: #eeeeee;
+                         -fx-background-radius: 10;">
+                <padding>
+                    <Insets top="15" right="15"
+                            bottom="15" left="15"/>
+                </padding>
+                <Label text="Current Order"
+                       style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                <Label fx:id="currentOrderLabel"
+                       text="No selections yet."
+                       wrapText="true"/>
+                <Label fx:id="totalLabel"
+                       text="Total: $0.00"
+                       style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

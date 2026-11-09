@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="mossimo.bianco.lab11.controller.SummaryController"
+      spacing="20"
+      alignment="CENTER_LEFT">
+
+    <padding>
+        <Insets top="30" right="30"
+                bottom="30" left="30"/>
+    </padding>
+    <Label text="Order Confirmation"
+           style="-fx-font-size: 25px; -fx-font-weight: bold;"/>
+
+    <Separator/>
+
+    <Label text="Your Order"
+           style="-fx-font-size: 17px; -fx-font-weight: bold;"/>
+    <Label fx:id="entreeLabel"
+           text="Entrée:"/>
+    <Label fx:id="drinkLabel"
+           text="Drink:"/>
+
+    <Separator/>
+
+    <Label text="Additional Information"
+           style="-fx-font-size: 17px; -fx-font-weight: bold;"/>
+    <Label fx:id="requestsLabel"
+           text="Special Requests:"
+           wrapText="true"/>
+    <Label fx:id="waterLabel"
+           text="Free Water:"/>
+
+    <Separator/>
+
+    <Label fx:id="totalLabel"
+           text="Total: $0.00"
+           style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+</VBox>
